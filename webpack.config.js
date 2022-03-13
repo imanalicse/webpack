@@ -2,7 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 module.exports = {
-    entry: './app/index.js',
+    mode: process.env.NODE_ENV === "production" ? "production" : "development",
+    //devtool: false,
+    entry: './src/index.js', // default - /src/index.js
+    output: {
+        path: path.resolve(__dirname, "dist"), // default dist
+        filename: "bundle.js" // main.js
+    },
     module: {
         rules: [
             {
@@ -19,10 +25,5 @@ module.exports = {
             },
         ]
     },
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
-    },
-    plugins: [new HtmlWebpackPlugin()],
-    mode: process.env.NODE_ENV === "production" ? "production" : "development",
+    plugins: [new HtmlWebpackPlugin()]
 }
