@@ -1,5 +1,5 @@
 function validateInput() {
-    console.log("validate Input function called 333")
+    console.log("validate Input function called")
 }
 
 export default validateInput;
