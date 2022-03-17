@@ -1,9 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
-    plugins: [new HtmlWebpackPlugin({
-        template: 'src/index.html'
-    })],
+    plugins: [
+        new HtmlWebpackPlugin({
+                template: 'src/index.html'
+        })
+    ],
     module: {
         rules: [
             {
@@ -18,6 +20,22 @@ module.exports = {
                 test: /\.(js)$/i,
                 use: "babel-loader"
             },
+            {
+                 test: /\.html$/i,
+                 use: ["html-loader"],
+            },
+            {
+            test: /\.(svg|png|jpe?g|gif)$/i,
+            use: [
+              {
+                 loader: 'file-loader',
+                  options: {
+                    name: "[name].[hash].[ext]",
+                    outputPath: "imgs"
+                  }
+              },
+            ],
+          },
         ]
     }
 }
