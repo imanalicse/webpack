@@ -7,7 +7,7 @@ module.exports = {
     entry: './src/index.js', // default - /src/index.js
     output: {
         path: path.resolve(__dirname, "dist"), // default dist
-        filename: "bundle.js" // main.js
+        filename: "main.[contenthash].js" // main.js
     },
     module: {
         rules: [
@@ -16,8 +16,12 @@ module.exports = {
                 use: 'svg-inline-loader'
             },
             {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"]
+                test: /\.scss$/i,
+                use: [
+                    "style-loader", // 3. Inject styles into DOM
+                    "css-loader",   // 2. Turns css into commonjs
+                    "sass-loader"   //1. Turns sass into css
+                ]
             },
             {
                 test: /\.(js)$/i,
@@ -25,5 +29,7 @@ module.exports = {
             },
         ]
     },
-    plugins: [new HtmlWebpackPlugin()]
+    plugins: [new HtmlWebpackPlugin({
+        template: 'src/index.html'
+    })]
 }
