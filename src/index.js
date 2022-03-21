@@ -1,10 +1,8 @@
-import inputTypes from "./utils/inputType";
-import ValidateInput from "./utils/validateInput";
 import "./main.scss";
-console.log(inputTypes);
-console.log(ValidateInput());
-console.log("hello world");
-//console.log($("webpack-form"));
+
+import User, { printName as printUserName, printAge } from "./js-modules/User";
+const user = new User("Iman Ali", 38);
+printUserName(user); printAge(user);
 
 document.getElementById("webpack-form").addEventListener("submit", function (e) {
     e.preventDefault();
