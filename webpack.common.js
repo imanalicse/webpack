@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: {
         vendor: './src/vendor.js',
@@ -7,14 +8,16 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
                 template: 'src/index.html'
-        })
+        }),
+        new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })
     ],
     module: {
         rules: [
             {
                 test: /\.scss$/i,
                 use: [
-                    "style-loader", // 3. Inject styles into DOM
+                    MiniCssExtractPlugin.loader, // 3. Extract css into files
+                    //"style-loader", // 3. Inject styles into DOM
                     "css-loader",   // 2. Turns css into commonjs
                     "sass-loader"   //1. Turns sass into css
                 ]
