@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
 module.exports = {
     entry: {
         vendor: './src/vendor.js',
@@ -9,7 +11,8 @@ module.exports = {
         new HtmlWebpackPlugin({
                 template: 'src/index.html'
         }),
-        new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })
+        new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+        new CleanWebpackPlugin()
     ],
     module: {
         rules: [

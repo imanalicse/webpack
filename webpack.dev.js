@@ -7,5 +7,17 @@ module.exports = merge(common, {
     output: {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist")
+    },
+    optimization: {
+        minimize: false,
+    },
+    devServer: {
+        port: 9000,
+        hot: true,
+        watchFiles: ['dist/**/*'],
+        liveReload: true,
+        devMiddleware: {
+            writeToDisk: true,
+        },
     }
 });
