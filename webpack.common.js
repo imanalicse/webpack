@@ -34,16 +34,12 @@ module.exports = {
                  use: ["html-loader"],
             },
             {
-            test: /\.(svg|png|jpe?g|gif)$/i,
-            use: [
-              {
-                 loader: 'file-loader',
-                  options: {
+                test: /\.(svg|png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+                options: {
                     name: "[name].[hash].[ext]",
                     outputPath: "images"
-                  }
-              },
-            ],
+                }
           },
         ]
     }
