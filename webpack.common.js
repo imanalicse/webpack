@@ -1,11 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require("path");
 
 module.exports = {
     entry: {
         vendor: './src/vendor.js',
         main: './src/index.js',
+    },
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        assetModuleFilename: 'images/[name].[hash][ext][query]'
     },
     plugins: [
         new HtmlWebpackPlugin({
