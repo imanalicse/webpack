@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webpack demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
@@ -16,11 +17,14 @@
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                yy/mm/dd <input name="date1" class="date_picker" date_format="yy/mm/dd" type="text"><br>
+                dd/mm/yy: <input name="date2" class="date_picker" date_format="dd/mm/yy" type="text"> <br>
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -28,6 +32,16 @@
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+
+            <br>
+            <ul id="items">
+                <li class="item">sortable item 1 <span class="my-handle">move</span></li>
+                <li class="item">sortable item 2 <span class="my-handle">move</span></li>
+                <li class="item">sortable item 3 <span class="my-handle">move</span></li>
+                <li class="item">sortable item 4 <span class="my-handle">move</span></li>
+                <li class="item">sortable item 5 <span class="my-handle">move</span></li>
+            </ul>
+
         </div>
     </div>
 </body>
